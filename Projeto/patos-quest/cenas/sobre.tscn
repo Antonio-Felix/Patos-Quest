@@ -1,0 +1,123 @@
+[gd_scene load_steps=8 format=3 uid="uid://dfn5o3lmcek57"]
+
+[ext_resource type="Script" uid="uid://l8iw6xdkj2wc" path="res://cenas/sobre.gd" id="1_gwn4u"]
+[ext_resource type="FontFile" uid="uid://cjdylgebf4ckj" path="res://fontes/Jersey10-Regular.ttf" id="2_krlnc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ttsau"]
+bg_color = Color(0.155321, 0.160394, 0.189214, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ttsau"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gwn4u"]
+bg_color = Color(0.485703, 0.485704, 0.485703, 1)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_85bjw"]
+bg_color = Color(0.834614, 0.834614, 0.834614, 1)
+shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fqupr"]
+bg_color = Color(0.533037, 0.533037, 0.533037, 1)
+shadow_size = 5
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_gwn4u")
+
+[node name="Panel" type="Panel" parent="."]
+offset_right = 1280.0
+offset_bottom = 768.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme_override_styles/panel = SubResource("StyleBoxFlat_ttsau")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/bold_italics_font_size = 22
+theme_override_font_sizes/italics_font_size = 22
+theme_override_font_sizes/mono_font_size = 22
+theme_override_font_sizes/normal_font_size = 22
+bbcode_enabled = true
+text = "[center]
+[font_size=36][b]SOBRE O JOGO[/b][/font_size]
+
+[font_size=30][b]PATOS QUEST[/b][/font_size]
+
+[i]PATOS QUEST[/i] é um jogo do gênero [i]aventura educativa[/i], desenvolvido no estilo “Modo História”, com uma narrativa envolvente e sensível que promove valores como empatia, respeito e inclusão.
+
+A história acompanha [b]Gui[/b], um jovem carismático e extrovertido que vive na cidade de Patos. Cadeirante desde cedo, ele não deixa que isso defina seus limites — pelo contrário, está sempre explorando o mundo à sua maneira. Gui é movido pela curiosidade e pelo desejo de independência, realizando pequenas tarefas para sua mãe com alegria e dedicação, sonhando com o dia em que poderá morar sozinho e embarcar em novas aventuras cotidianas.
+
+Com um mundo inspirado em cenários reais e repleto de interações significativas, [b]PATOS QUEST[/b] convida o jogador a refletir sobre acessibilidade, autonomia e os desafios enfrentados por muitas pessoas na sociedade.
+
+[font_size=28][b]Para todos os públicos[/b][/font_size]
+
+Este jogo foi criado para ser vivido por todos — crianças, adolescentes, adultos e educadores — promovendo uma experiência acessível, reflexiva e acolhedora.
+
+[font_size=28][b]Desenvolvido por quem acredita na mudança[/b][/font_size]
+
+O projeto é fruto de um [i]programa de extensão universitária[/i], criado pela equipe da  [font_size=22][b]GO+[/b] [/font_size], com base em uma proposta inicial desenvolvida pelos próprios integrantes. Todo o enredo, personagens e mecânicas foram pensados com carinho por estudantes que desejam transformar ideias em impacto real.
+
+[font_size=28][b]Mecânicas de Jogo[/b][/font_size]
+
+Durante sua jornada, Gui enfrentará  [font_size=22][b]missões e desafios[/b][/font_size] cotidianos que simulam a realidade de pessoas com deficiência. A cada fase, há objetivos específicos que devem ser cumpridos, como ajudar NPCs, interagir com comerciantes e explorar espaços com barreiras acessíveis.
+
+Ao completar tarefas, o jogador ganha [font_size=22][b]Patos Points (PP)[/b][/font_size], que podem ser utilizados para desbloquear fases, comprar itens e personalizar a experiência de jogo.
+
+O progresso é representado por conquistas, fases desbloqueadas e interações realizadas, sempre com foco em autonomia e inclusão.
+
+[font_size=28][i]PATOS QUEST é mais do que um jogo.  
+É um convite para enxergar o mundo pelos olhos do outro.  
+É uma jornada onde o maior tesouro é a inclusão.[/i][/font_size]
+
+[font_size=36][b]QUEM SOMOS[/b][/font_size]
+
+[font_size=30][b]GO+ Team[/b][/font_size]
+ [font_size=22]
+A [b]GO+ Team[/b] é um time de desenvolvedores apaixonados por tecnologia, educação e transformação social. Formada por [b]Adriano Junior, Antônio Félix, José Marinaldo[/b] e [b]Luiz Gustavo[/b], a equipe surgiu da iniciativa dos próprios integrantes, com o objetivo de desenvolver soluções digitais que gerem impacto real na sociedade. Conta ainda com um colaborador, [b]Pedro Henrique[/b], que auxiliou no projeto em questão.
+
+Ainda em processo de formalização como uma empresa júnior, a [b]GO+[/b] nasceu dentro do ambiente acadêmico da [b]UNIFIP – Centro Universitário de Patos[/b], e tem como missão oferecer projetos inovadores e inclusivos, com foco em acessibilidade, educação e participação cidadã.
+
+O grupo é responsável pelo desenvolvimento do jogo [b]PATOS QUEST[/b], uma produção que une criatividade, propósito e tecnologia para contar a história de [b]Gui[/b], um jovem cadeirante que enfrenta os desafios do dia a dia com carisma e coragem.
+
+A [b]GO+[/b] acredita que experiências interativas podem ser ferramentas poderosas para promover empatia, respeito e inclusão — e é isso que guia cada decisão de design, roteiro e mecânica no desenvolvimento do jogo.
+
+Mais do que uma equipe de desenvolvedores, a [b]GO+[/b] é um movimento de estudantes que desejam transformar ideias em soluções, e projetos acadêmicos em legados sociais.
+ [/font_size]
+[/center]
+"
+fit_content = true
+
+[node name="Button" type="Button" parent="Panel/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_krlnc")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ttsau")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gwn4u")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_85bjw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_fqupr")
+text = "VOLTAR"
+
+[node name="espaco" type="Control" parent="Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+
+[connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]

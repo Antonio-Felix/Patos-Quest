@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://unvt2rk15kwc"]
+
+[ext_resource type="Script" uid="uid://020d30lawaq6" path="res://scripts/base_character.gd" id="1_lf8b0"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lf8b0"]
+radius = 5.0
+height = 20.0
+
+[node name="BaseCharacter" type="CharacterBody2D" node_paths=PackedStringArray("_animation")]
+script = ExtResource("1_lf8b0")
+_animation = NodePath("Animation")
+
+[node name="Texture" type="Sprite2D" parent="."]
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_lf8b0")
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Collision")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 3)

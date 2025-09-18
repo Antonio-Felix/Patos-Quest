@@ -1,0 +1,92 @@
+[gd_scene load_steps=4 format=3 uid="uid://eesiuptxkajt"]
+
+[ext_resource type="PackedScene" uid="uid://olymb41avesj" path="res://cenas/moeda.tscn" id="1_h2str"]
+[ext_resource type="Script" uid="uid://d0vowe3ci45xy" path="res://cenas/tela_creditos.gd" id="1_s1etw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a54q2"]
+bg_color = Color(0.156863, 0.160784, 0.188235, 1)
+
+[node name="ScrollContainer" type="ScrollContainer" node_paths=PackedStringArray("text_node")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_a54q2")
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+script = ExtResource("1_s1etw")
+text_node = NodePath("MarginContainer/RichTextLabel")
+credits_time = 50.0
+margin_increment = 500.0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer"]
+layout_mode = 2
+bbcode_enabled = true
+text = "[center]
+[font_size=26][b]CRÉDITOS[/b][/font_size]
+[font_size=18][i]PATOS QUEST[/i] é um projeto desenvolvido com dedicação, propósito e paixão por um futuro mais inclusivo.
+
+[font_size=22][b]Desenvolvedores[/b][/font_size]
+Adriano Junior  
+Antônio Félix  
+Luiz Gustavo  
+José Marinaldo  
+Pedro Henrique
+
+[font_size=22][b]Realização[/b][/font_size]
+GO+  
+(Empreendimento em desenvolvimento com foco em experiências significativas por meio da tecnologia e da inclusão social)
+
+[font_size=22][b]Colaboração e Inspiração[/b][/font_size]
+Proposta inicial apresentada por dois professores da  
+[b]UNIFIP - Campus Patos[/b]  
+Ideias debatidas e aprimoradas pela equipe de desenvolvimento
+
+[font_size=22][b]Projeto Associado[/b][/font_size]
+[b]Tesouro da Inclusão[/b]  
+Iniciativa que promove empatia, respeito e valorização das diferenças através da tecnologia e da educação
+
+[font_size=22][b]Missão do Jogo[/b][/font_size]
+Levar ao jogador uma experiência que vá além da diversão —  
+uma jornada de reflexão sobre acessibilidade, respeito às diferenças e convivência harmoniosa.
+
+[font_size=22][b]Agradecimentos Especiais[/b][/font_size]
+A todos que acreditam em um mundo mais justo.  
+À família e amigos pelo apoio constante.  
+Aos educadores e idealizadores que plantaram a semente deste projeto.  
+E, principalmente, a cada jogador que escolheu embarcar nessa jornada conosco.
+
+[font_size=22][b]Créditos Técnicos[/b][/font_size]
+Programação, Design e Narrativa: Equipe GO+  
+Consultoria e Discussão de Ideias: Professores da UNIFIP  
+Testes e Feedback: Alunos e colaboradores voluntários  
+Trilha sonora: [i]Em desenvolvimento[/i]
+
+[font_size=20][i]“A verdadeira aventura começa quando aprendemos a enxergar o outro com empatia.  
+PATOS QUEST não é apenas um jogo — é um convite para explorar um mundo onde a inclusão é o maior dos tesouros.”[/i][/font_size]
+
+[font_size=18]Leve essa mensagem além do jogo.  
+Seja parte da mudança.[/font_size]
+"
+fit_content = true
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="moeda" parent="MarginContainer/MarginContainer" instance=ExtResource("1_h2str")]
+position = Vector2(1172, 114)
+collision_layer = 2
+
+[node name="moeda2" parent="MarginContainer/MarginContainer" instance=ExtResource("1_h2str")]
+position = Vector2(1189, 1027)
+collision_layer = 2
+
+[node name="moeda3" parent="MarginContainer/MarginContainer" instance=ExtResource("1_h2str")]
+position = Vector2(146, 561)
+collision_layer = 2
