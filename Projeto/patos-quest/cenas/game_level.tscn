@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dta6pvhchjevu"]
+[gd_scene load_steps=17 format=3 uid="uid://dta6pvhchjevu"]
 
 [ext_resource type="Script" uid="uid://dqvkhmwyhqmr" path="res://cenas/game_level.gd" id="1_b5r0v"]
 [ext_resource type="PackedScene" uid="uid://b6x1osh00hb4i" path="res://cenas/terreno.tscn" id="1_duqxd"]
@@ -9,7 +9,11 @@
 [ext_resource type="Texture2D" uid="uid://bp6xs1tr254p" path="res://personagens/Morena.png" id="6_p7pl8"]
 [ext_resource type="Texture2D" uid="uid://dm47jf1vkulfe" path="res://personagens/Castanho.png" id="7_bknfm"]
 [ext_resource type="Texture2D" uid="uid://cnh7d557wqpyr" path="res://personagens/Loiro.png" id="8_bknfm"]
-[ext_resource type="PackedScene" uid="uid://du44rmtvdy1hj" path="res://cenas/hud_moeda_npc.tscn" id="10_3a5l2"]
+[ext_resource type="PackedScene" uid="uid://du44rmtvdy1hj" path="res://cenas/hud_npc.tscn" id="10_3a5l2"]
+[ext_resource type="PackedScene" uid="uid://244yn1lrnens" path="res://cenas/hud_moeda.tscn" id="10_qkgxe"]
+[ext_resource type="AudioStream" uid="uid://4wuea05mi8t0" path="res://sounds/violao.mp3" id="12_8exd5"]
+[ext_resource type="AudioStream" uid="uid://8ifaxeorg4qk" path="res://sounds/bateria.mp3" id="13_d3vph"]
+[ext_resource type="AudioStream" uid="uid://bv7i0t8opekaw" path="res://sounds/baixo.mp3" id="14_mqgw4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7cgj1"]
 size = Vector2(36, 41)
@@ -17,9 +21,8 @@ size = Vector2(36, 41)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y68d4"]
 size = Vector2(15, 27)
 
-[node name="GameLevel" type="Node2D" node_paths=PackedStringArray("_hud")]
+[node name="GameLevel" type="Node2D"]
 script = ExtResource("1_b5r0v")
-_hud = NodePath("HUD")
 
 [node name="HUD" type="CanvasLayer" parent="."]
 
@@ -44,7 +47,7 @@ layout_mode = 2
 position = Vector2(446, -162)
 
 [node name="gui" parent="." instance=ExtResource("3_7cgj1")]
-position = Vector2(998, 19)
+position = Vector2(1349, 335)
 collision_mask = 2
 
 [node name="npcs" type="Node2D" parent="."]
@@ -140,15 +143,32 @@ collision_layer = 2
 position = Vector2(-0.5, 0.5)
 shape = SubResource("RectangleShape2D_y68d4")
 
+[node name="HUD_MOEDA" parent="." instance=ExtResource("10_qkgxe")]
+
 [node name="HUD_MOEDA_NPC" parent="." instance=ExtResource("10_3a5l2")]
 
-[connection signal="body_entered" from="npcs/NPC1" to="gui" method="_on_npc_1_body_entered"]
-[connection signal="body_exited" from="npcs/NPC1" to="gui" method="_on_npc_1_body_exited"]
-[connection signal="body_entered" from="npcs/NPC2" to="gui" method="_on_npc_2_body_entered"]
-[connection signal="body_exited" from="npcs/NPC2" to="gui" method="_on_npc_2_body_exited"]
-[connection signal="body_entered" from="npcs/NPC3" to="gui" method="_on_npc_3_body_entered"]
-[connection signal="body_exited" from="npcs/NPC3" to="gui" method="_on_npc_3_body_exited"]
-[connection signal="body_entered" from="npcs/NPC4" to="gui" method="_on_npc_4_body_entered"]
-[connection signal="body_exited" from="npcs/NPC4" to="gui" method="_on_npc_4_body_exited"]
-[connection signal="body_entered" from="npcs/NPC5" to="gui" method="_on_npc_5_body_entered"]
-[connection signal="body_exited" from="npcs/NPC5" to="gui" method="_on_npc_5_body_exited"]
+[node name="violao" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_8exd5")
+volume_db = -30.0
+autoplay = true
+
+[node name="bateria" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_d3vph")
+volume_db = -30.0
+autoplay = true
+
+[node name="baixo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_mqgw4")
+volume_db = -20.0
+autoplay = true
+
+[connection signal="body_entered" from="npcs/NPC1" to="." method="_on_npc_1_body_entered"]
+[connection signal="body_exited" from="npcs/NPC1" to="." method="_on_npc_1_body_exited"]
+[connection signal="body_entered" from="npcs/NPC2" to="." method="_on_npc_2_body_entered"]
+[connection signal="body_exited" from="npcs/NPC2" to="." method="_on_npc_2_body_exited"]
+[connection signal="body_entered" from="npcs/NPC3" to="." method="_on_npc_3_body_entered"]
+[connection signal="body_exited" from="npcs/NPC3" to="." method="_on_npc_3_body_exited"]
+[connection signal="body_entered" from="npcs/NPC4" to="." method="_on_npc_4_body_entered"]
+[connection signal="body_exited" from="npcs/NPC4" to="." method="_on_npc_4_body_exited"]
+[connection signal="body_entered" from="npcs/NPC5" to="." method="_on_npc_5_body_entered"]
+[connection signal="body_exited" from="npcs/NPC5" to="." method="_on_npc_5_body_exited"]

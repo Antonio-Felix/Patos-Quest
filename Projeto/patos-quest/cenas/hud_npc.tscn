@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://du44rmtvdy1hj"]
+
+[ext_resource type="Script" uid="uid://c38070dhhy5cy" path="res://scripts/control_level_um.gd" id="1_lhpmr"]
+[ext_resource type="FontFile" uid="uid://cjdylgebf4ckj" path="res://fontes/Jersey10-Regular.ttf" id="8_2xolo"]
+
+[node name="HUD_NPC" type="CanvasLayer"]
+
+[node name="control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lhpmr")
+
+[node name="container" type="MarginContainer" parent="control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="npc_container" type="HBoxContainer" parent="control/container"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="npc_label" type="Label" parent="control/container/npc_container"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_2xolo")
+theme_override_font_sizes/font_size = 30
+text = "Conversou:"
+vertical_alignment = 1
+
+[node name="npc_counter" type="Label" parent="control/container/npc_container"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("8_2xolo")
+theme_override_font_sizes/font_size = 30
+text = "00"
+vertical_alignment = 1
