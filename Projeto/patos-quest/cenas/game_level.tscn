@@ -47,7 +47,7 @@ layout_mode = 2
 position = Vector2(446, -162)
 
 [node name="gui" parent="." instance=ExtResource("3_7cgj1")]
-position = Vector2(1349, 335)
+position = Vector2(965, 6)
 collision_mask = 2
 
 [node name="npcs" type="Node2D" parent="."]
