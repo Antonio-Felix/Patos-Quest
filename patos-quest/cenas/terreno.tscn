@@ -5426,6 +5426,27 @@ polygon = PackedVector2Array(-74, 103, -71, 103, -82, 145, -112, 255, -171, 466,
 [node name="Brinquedo" type="CollisionPolygon2D" parent="Node2D/COLISOES"]
 polygon = PackedVector2Array(679, 322, 649, 377, 687, 397, 718, 339)
 
+[node name="Calçada3 esquerda baixo" type="CollisionPolygon2D" parent="Node2D/COLISOES"]
+polygon = PackedVector2Array(-234, 602, -230, 600, -226, 604, -220, 607, -213, 609, -197, 610, -162, 611, -157, 611, -156, 614, -199, 614, -217, 612, -226, 608, -231, 605)
+
+[node name="Calçada3 esqueda baixo 2" type="CollisionPolygon2D" parent="Node2D/COLISOES"]
+polygon = PackedVector2Array(-120, 611, -120, 614, -101, 614, -101, 611)
+
+[node name="Calçada3 baixo" type="CollisionPolygon2D" parent="Node2D/COLISOES"]
+polygon = PackedVector2Array(-53, 611, -53, 614, 1021, 614, 1055, 613, 1086, 612, 1117, 611, 1148, 610, 1178, 609, 1209, 608, 1233, 607, 1287, 604, 1309, 602, 1333, 599, 1352, 595, 1364, 591, 1367, 589, 1361, 588, 1353, 591, 1330, 596, 1299, 599, 1267, 601, 1231, 603, 1176, 605, 1146, 606, 1115, 607, 1052, 609, 1001, 611)
+
+[node name="Calçada3 direita" type="CollisionPolygon2D" parent="Node2D/COLISOES"]
+polygon = PackedVector2Array(1366, 550, 1369, 548, 1360, 533, 1346, 514, 1314, 476, 1291, 447, 1246, 397, 1195, 343, 1123, 267, 1059, 198, 1017, 158, 942, 88, 861, 13, 780, -63, 693, -142, 570, -255, 483, -336, 402, -411, 321, -485, 247, -553, 189, -607, 178, -618, 175, -615, 188, -603, 251, -545, 321, -481, 374, -432, 432, -379, 467, -346, 510, -306, 552, -267, 622, -203, 679, -150, 738, -95, 809, -30, 883, 38, 961, 110, 1045, 189, 1102, 249, 1169, 321, 1239, 395, 1291, 453, 1339, 511, 1354, 532)
+
+[node name="Calçada3 Cima" type="CollisionPolygon2D" parent="Node2D/COLISOES"]
+polygon = PackedVector2Array(149, -635, 152, -638, 142, -643, 134, -645, 129, -645, 123, -643, 117, -637, 113, -632, 116, -630, 122, -637, 126, -640, 132, -642, 139, -640, 146, -637)
+
+[node name="Calçada3 Esquerda" type="CollisionPolygon2D" parent="Node2D/COLISOES"]
+polygon = PackedVector2Array(-236, 570, -233, 569, -230, 553, -187, 378, -160, 274, -120, 134, -62, -66, -1, -279, 59, -484, 100, -601, 96, -602, 84, -571, 57, -489, 38, -427, 9, -327, -16, -240, -56, -101, -76, -30, -104, 67, -133, 167, -164, 276, -189, 371, -211, 462, -233, 548)
+
+[node name="FORA COLISAO" type="CollisionPolygon2D" parent="Node2D/COLISOES"]
+polygon = PackedVector2Array(1728, 756, -397, 756, -463, 757, -424, 643, -357, 400, -260, 50, -199, -168, -86, -574, -45, -729, -32, -776, 87, -772, 285, -772, 586, -772, 586, -713, 586, -712, 332, -712, 321, -710, 317, -707, 317, -703, 325, -694, 1614, 542, 1670, 597, 1699, 602, 1697, 729, 1728, 730, 1706, 722, 1706, 594, 1674, 587, 1581, 494, 329, -702, 600, -705, 599, -782, -40, -788, -485, 773, -243, 772, 1725, 771)
+
 [node name="BrinquedoBalanco" parent="." instance=ExtResource("4_bp32j")]
 position = Vector2(678.855, 346.46)
 scale = Vector2(0.915, 1)
