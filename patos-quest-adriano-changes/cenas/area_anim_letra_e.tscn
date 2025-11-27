@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://cfynpxqog1oq0"]
+
+[ext_resource type="Script" uid="uid://i23ufggex8w4" path="res://scripts/area_anim_letra_e.gd" id="1_35u7g"]
+[ext_resource type="Texture2D" uid="uid://d20fs4y2cnfdn" path="res://animações/Letra E.png" id="2_jp8e3"]
+
+[sub_resource type="Animation" id="Animation_reset"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_loop"]
+resource_name = "loop"
+length = 0.9
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_loop"]
+_data = {
+&"RESET": SubResource("Animation_reset"),
+&"loop": SubResource("Animation_loop")
+}
+
+[node name="AreaAnimLetraE" type="Node2D"]
+script = ExtResource("1_35u7g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -5.999996)
+scale = Vector2(0.40312502, 0.38750008)
+texture = ExtResource("2_jp8e3")
+hframes = 3
+vframes = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_loop")
+}
