@@ -3,6 +3,9 @@ class_name GameLevel
 
 const _DIALOG_SCREEN: PackedScene = preload("res://dialog_screen.tscn")
 
+@onready var move_joystick: Control = %move_joystick
+@onready var touch_screen_button: TouchScreenButton = %TouchScreenButton
+
 @export_category("Objects")
 var dialogue1 = preload("res://conversa.dialogue")
 var player_in_area := false
@@ -21,10 +24,20 @@ var interaction_used := false
 func _ready() -> void:
 	await get_tree().create_timer(0.1).timeout
 	DialogueManager.show_example_dialogue_balloon(dialogue1, "bom_dia")
+	DialogueManager.dialogue_started.connect(_on_dialog_start)
 	DialogueManager.dialogue_ended.connect(_on_dialog_end)
+
+func _on_dialog_start(_resource: DialogueResource):
+	Globals.dialog_active = true
+	if move_joystick:
+		move_joystick.visible = false
+		touch_screen_button.visible = false
 
 func _on_dialog_end(_resource: DialogueResource):
 	Globals.dialog_active = false
+	if move_joystick:
+		move_joystick.visible = true
+		touch_screen_button.visible = true
 	
 func _process(_delta: float) -> void: 
 	if player_in_area and not interaction_used and Input.is_action_just_pressed("E"):

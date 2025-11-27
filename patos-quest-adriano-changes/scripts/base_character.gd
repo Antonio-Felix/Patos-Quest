@@ -1,12 +1,16 @@
 extends CharacterBody2D
 class_name BaseCharacter
 
+@onready var move_joystick: Control = %move_joystick.get_node("base") #Joystick
+
 @export var _move_speed: float = 128.0
 @export var _animation: AnimationPlayer
 @export var cont: float = 0
 @onready var _step_player: AudioStreamPlayer = $StepPlayer
 @export var _step_sounds: Array[AudioStream] = []
 var _rng := RandomNumberGenerator.new()
+
+var is_mobile_input := false #Joystick
 
 func _ready() -> void:
 	_rng.randomize()
@@ -20,46 +24,72 @@ func _physics_process(_delta: float) -> void:
 	_handle_step_sound()
 
 func _move() -> void:
-	var dir = Input.get_vector("move_left", "move_right", "move_up", "move_down")
-	velocity = dir * _move_speed
+	var _direction_pc: Vector2 = Input.get_vector(
+		"move_left", "move_right", "move_up", "move_down") 
+	var _direction_mobile: Vector2 = move_joystick.get_direction()
+
+	if _direction_mobile != Vector2.ZERO:
+		is_mobile_input = true
+	else:
+		is_mobile_input = false
+
+	var final_direction: Vector2 = _direction_pc
+	if is_mobile_input:
+		final_direction = _direction_mobile
+
+	velocity = final_direction * _move_speed
 	move_and_slide()
 
 func _animate() -> void:
-	if velocity.x > 0:
-		_animation.play("andando_direita")
-		cont = 1
+	if velocity == Vector2.ZERO:
+		if cont == 1:
+			_animation.play("parado_lado_direito")
+		elif cont == 2:
+			_animation.play("parado_lado_esquerdo")
+		elif cont == 3:
+			_animation.play("parado_frente")
+		elif cont == 4:
+			_animation.play("parado_costa")
 		return
 
-	if velocity.x < 0:
-		_animation.play("andando_esquerda")
-		cont = 2
-		return
+	# MOBILE - Joystick (lógica nova)
+	if is_mobile_input:
+		if abs(velocity.x) > abs(velocity.y):
+			if velocity.x > 0:
+				_animation.play("andando_direita")
+				cont = 1
+			else:
+				_animation.play("andando_esquerda")
+				cont = 2
+		else:
+			if velocity.y > 0:
+				_animation.play("andando_baixo")
+				cont = 3
+			else:
+				_animation.play("andando_cima")
+				cont = 4
 
-	if velocity.y > 0:
-		_animation.play("andando_baixo")
-		cont = 3
-		return
+	# PC - Teclado (lógica antiga)
+	else:
+		if velocity.x > 0:
+			_animation.play("andando_direita")
+			cont = 1
+			return
 
-	if velocity.y < 0:
-		_animation.play("andando_cima")
-		cont = 4
-		return
+		if velocity.x < 0:
+			_animation.play("andando_esquerda")
+			cont = 2
+			return
 
-	if cont == 1:
-		_animation.play("parado_lado_direito")
-		return
+		if velocity.y > 0:
+			_animation.play("andando_baixo")
+			cont = 3
+			return
 
-	if cont == 2:
-		_animation.play("parado_lado_esquerdo")
-		return
-
-	if cont == 3:
-		_animation.play("parado_frente")
-		return
-
-	if cont == 4:
-		_animation.play("parado_costa")
-		return
+		if velocity.y < 0:
+			_animation.play("andando_cima")
+			cont = 4
+			return
 
 func _handle_step_sound() -> void:
 	if velocity.length_squared() > 0.01:
