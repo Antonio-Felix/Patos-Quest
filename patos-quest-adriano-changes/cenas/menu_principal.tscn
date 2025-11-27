@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bxgfyw7xbgsca"]
+[gd_scene load_steps=18 format=3 uid="uid://bxgfyw7xbgsca"]
 
 [ext_resource type="Script" uid="uid://b2b8rl865xfjr" path="res://scripts/menu_principal.gd" id="1_eyjon"]
 [ext_resource type="Texture2D" uid="uid://bjei2ew11gs5n" path="res://painel/terreno.png" id="2_eyjon"]
@@ -10,25 +10,61 @@
 texture = ExtResource("2_eyjon")
 modulate_color = Color(0.392157, 0.392157, 0.392157, 1)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_roq6h"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eyjon"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ro21"]
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0330o"]
 bg_color = Color(1, 1, 1, 1)
 shadow_size = 5
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sw1c2"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ro21"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_po728"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eyjon"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bjdft"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_roq6h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y2dfy"]
 bg_color = Color(1, 1, 1, 1)
 shadow_size = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bjdft"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_po728"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sw1c2"]
+
+[sub_resource type="Animation" id="Animation_eyjon"]
+resource_name = "fade_in"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(2, 0.5),
+"update": 0,
+"values": [Color(0.14117648, 0.14117648, 0.14117648, 1), Color(0.14117648, 0.14117648, 0.14117648, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_6ro21"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.14117648, 0.14117648, 0.14117648, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0330o"]
+_data = {
+&"RESET": SubResource("Animation_6ro21"),
+&"fade_in": SubResource("Animation_eyjon")
+}
 
 [node name="MenuPrincipal" type="Control"]
 layout_mode = 3
@@ -67,61 +103,61 @@ theme_override_constants/separation = 10
 [node name="BtnComecar" type="Button" parent="Painel/ContainerV"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_6ro21")
 theme_override_font_sizes/font_size = 50
-theme_override_styles/focus = SubResource("StyleBoxEmpty_roq6h")
-theme_override_styles/hover = SubResource("StyleBoxFlat_eyjon")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_6ro21")
 theme_override_styles/normal = SubResource("StyleBoxFlat_0330o")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6ro21")
+theme_override_styles/hover = SubResource("StyleBoxFlat_eyjon")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_roq6h")
 text = "COMEÇAR"
 
 [node name="BtnCreditos" type="Button" parent="Painel/ContainerV"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_6ro21")
 theme_override_font_sizes/font_size = 50
-theme_override_styles/focus = SubResource("StyleBoxEmpty_sw1c2")
-theme_override_styles/hover = SubResource("StyleBoxFlat_po728")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_bjdft")
 theme_override_styles/normal = SubResource("StyleBoxFlat_y2dfy")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bjdft")
+theme_override_styles/hover = SubResource("StyleBoxFlat_po728")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sw1c2")
 text = "CRÉDITOS"
 
 [node name="BtnSobre" type="Button" parent="Painel/ContainerV"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_6ro21")
 theme_override_font_sizes/font_size = 50
-theme_override_styles/focus = SubResource("StyleBoxEmpty_sw1c2")
-theme_override_styles/hover = SubResource("StyleBoxFlat_po728")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_bjdft")
 theme_override_styles/normal = SubResource("StyleBoxFlat_y2dfy")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bjdft")
+theme_override_styles/hover = SubResource("StyleBoxFlat_po728")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sw1c2")
 text = "SOBRE"
 
 [node name="BtnSair" type="Button" parent="Painel/ContainerV"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
 theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_6ro21")
 theme_override_font_sizes/font_size = 50
-theme_override_styles/focus = SubResource("StyleBoxEmpty_sw1c2")
-theme_override_styles/hover = SubResource("StyleBoxFlat_po728")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_bjdft")
 theme_override_styles/normal = SubResource("StyleBoxFlat_y2dfy")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_bjdft")
+theme_override_styles/hover = SubResource("StyleBoxFlat_po728")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_sw1c2")
 text = "SAIR"
 
 [node name="TextoTitulo" type="Label" parent="Painel"]
@@ -158,6 +194,21 @@ offset_right = 1821.0
 offset_bottom = 1538.0
 texture = ExtResource("3_0w2hc")
 expand_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.14117648, 0.14117648, 0.14117648, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_0330o")
+}
+autoplay = "fade_in"
 
 [connection signal="pressed" from="Painel/ContainerV/BtnComecar" to="." method="_on_btn_comecar_pressed"]
 [connection signal="pressed" from="Painel/ContainerV/BtnCreditos" to="." method="_on_btn_creditos_pressed"]

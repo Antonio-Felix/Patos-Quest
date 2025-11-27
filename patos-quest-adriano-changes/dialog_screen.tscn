@@ -1,6 +1,47 @@
-[gd_scene load_steps=2 format=3 uid="uid://riuxvexulq8s"]
+[gd_scene load_steps=2 format=3 uid="uid://dcqisdptnclnl"]
 
-[ext_resource type="Script" uid="uid://c7r2xm6ymy2ij" path="res://dialog_screen.gd" id="1_hm2fq"]
+[sub_resource type="GDScript" id="GDScript_1kbq1"]
+script/source = "extends Control
+class_name DialogScreen
+'''
+var _step: float = 0.05
+
+var _id: int = 0
+var data: Dictionary = {}
+
+@export_category(\"Objects\")
+@export var _name: Label = null
+@export var _dialog: RichTextLabel = null
+@export var _faceset: TextureRect = null
+
+func _ready() -> void:
+	_initialize_dialog()
+
+func _process(_delta: float) -> void:
+	if Input.is_action_pressed(\"press_enter\") and _dialog.visible_ratio < 1:
+		_step = 0.01
+		return
+	_step = 0.05
+	if Input.is_action_just_pressed(\"press_enter\"):
+		_id += 1
+		if _id == data.size():
+			queue_free()
+			return
+
+		_initialize_dialog()
+
+
+func _initialize_dialog() -> void:
+	_name.text = data[_id][\"title\"]
+	_dialog.text = data[_id][\"dialog\"]
+	_faceset.texture = load(data[_id][\"faceset\"])
+
+	_dialog.visible_characters = 0
+	while _dialog.visible_ratio < 1:
+		await get_tree().create_timer(_step).timeout
+		_dialog.visible_characters +=1
+'''
+"
 
 [node name="DialogScreen" type="Control"]
 custom_minimum_size = Vector2(320, 80)
@@ -16,7 +57,7 @@ offset_right = 153.0
 offset_bottom = -302.0
 grow_horizontal = 2
 grow_vertical = 0
-script = ExtResource("1_hm2fq")
+script = SubResource("GDScript_1kbq1")
 
 [node name="background" type="ColorRect" parent="."]
 layout_mode = 1
