@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://mg38x0idkcbk"]
+
+[ext_resource type="Texture2D" uid="uid://6dfx63m6a1lw" path="res://imagens/base.png" id="1_ptw3l"]
+[ext_resource type="Script" uid="uid://c8nxyam8qxj8y" path="res://scripts/joystick_mobile.gd" id="2_ufteq"]
+[ext_resource type="Texture2D" uid="uid://cw28as3d2uryr" path="res://imagens/stick.png" id="3_ufteq"]
+
+[node name="move_joystick" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="base" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.609
+anchor_right = 0.23400001
+anchor_bottom = 1.0
+offset_top = 0.28796387
+offset_right = 0.47998047
+grow_vertical = 0
+texture = ExtResource("1_ptw3l")
+script = ExtResource("2_ufteq")
+
+[node name="stick" type="TextureRect" parent="base"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.317
+anchor_top = 0.317
+anchor_right = 0.683
+anchor_bottom = 0.683
+offset_left = -0.099998474
+offset_top = -0.099998474
+offset_right = 0.099990845
+offset_bottom = 0.099990845
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_ufteq")
