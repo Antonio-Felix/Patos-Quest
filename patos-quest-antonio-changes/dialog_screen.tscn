@@ -1,0 +1,113 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcqisdptnclnl"]
+
+[sub_resource type="GDScript" id="GDScript_1kbq1"]
+script/source = "extends Control
+class_name DialogScreen
+'''
+var _step: float = 0.05
+
+var _id: int = 0
+var data: Dictionary = {}
+
+@export_category(\"Objects\")
+@export var _name: Label = null
+@export var _dialog: RichTextLabel = null
+@export var _faceset: TextureRect = null
+
+func _ready() -> void:
+	_initialize_dialog()
+
+func _process(_delta: float) -> void:
+	if Input.is_action_pressed(\"press_enter\") and _dialog.visible_ratio < 1:
+		_step = 0.01
+		return
+	_step = 0.05
+	if Input.is_action_just_pressed(\"press_enter\"):
+		_id += 1
+		if _id == data.size():
+			queue_free()
+			return
+
+		_initialize_dialog()
+
+
+func _initialize_dialog() -> void:
+	_name.text = data[_id][\"title\"]
+	_dialog.text = data[_id][\"dialog\"]
+	_faceset.texture = load(data[_id][\"faceset\"])
+
+	_dialog.visible_characters = 0
+	while _dialog.visible_ratio < 1:
+		await get_tree().create_timer(_step).timeout
+		_dialog.visible_characters +=1
+'''
+"
+
+[node name="DialogScreen" type="Control"]
+custom_minimum_size = Vector2(320, 80)
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -167.0
+offset_top = -382.0
+offset_right = 153.0
+offset_bottom = -302.0
+grow_horizontal = 2
+grow_vertical = 0
+script = SubResource("GDScript_1kbq1")
+
+[node name="background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.572549)
+
+[node name="HContainer" type="HBoxContainer" parent="background"]
+custom_minimum_size = Vector2(312, 72)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -156.0
+offset_top = -36.0
+offset_right = 156.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Border" type="ColorRect" parent="background/HContainer"]
+custom_minimum_size = Vector2(72, 0)
+layout_mode = 2
+color = Color(1, 1, 1, 0)
+
+[node name="Faceset" type="TextureRect" parent="background/HContainer/Border"]
+custom_minimum_size = Vector2(70, 72)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+expand_mode = 1
+stretch_mode = 5
+
+[node name="VContainer" type="VBoxContainer" parent="background/HContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Name" type="Label" parent="background/HContainer/VContainer"]
+layout_mode = 2
+text = "nome"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Dialog" type="RichTextLabel" parent="background/HContainer/VContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "subtexto"
+scroll_active = false
