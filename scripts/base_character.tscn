@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://unvt2rk15kwc"]
+
+[ext_resource type="Script" uid="uid://020d30lawaq6" path="res://scripts/base_character.gd" id="1_lf8b0"]
+[ext_resource type="AudioStream" path="res://sounds/cadeira de rodas1.mp3" id="2_l1f4f"]
+[ext_resource type="AudioStream" path="res://sounds/cadeira de rodas2.mp3" id="3_f1n7g"]
+[ext_resource type="AudioStream" path="res://sounds/cadeira de rodas3.mp3" id="4_b2c9w"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lf8b0"]
+radius = 5.0
+height = 20.0
+
+[node name="BaseCharacter" type="CharacterBody2D" node_paths=PackedStringArray("_animation")]
+script = ExtResource("1_lf8b0")
+_animation = NodePath("Animation")
+_step_sounds = [ExtResource("2_l1f4f"), ExtResource("3_f1n7g"), ExtResource("4_b2c9w")]
+
+[node name="Texture" type="Sprite2D" parent="."]
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_lf8b0")
+
+[node name="Animation" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Collision")
+
+[node name="StepPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 0
+volume_db = -10.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 3)

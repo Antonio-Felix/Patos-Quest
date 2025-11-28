@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://choskv1tvwdt1"]
+
+[ext_resource type="Script" uid="uid://cmg4llujus47p" path="res://scripts/area_spawn_anim.gd" id="1_1o7nj"]
+[ext_resource type="Texture2D" uid="uid://d20fs4y2cnfdn" path="res://animações/Letra E.png" id="2_d0s1y"]
+
+[sub_resource type="RectangleShape2D" id="3_3j4m9"]
+size = Vector2(64, 64)
+
+[node name="AreaSpawnAnim" type="Area2D"]
+script = ExtResource("1_1o7nj")
+spritesheet = ExtResource("2_d0s1y")
+trigger_once = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("3_3j4m9")

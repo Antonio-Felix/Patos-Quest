@@ -1,0 +1,174 @@
+[gd_scene load_steps=15 format=3 uid="uid://dfyeps4pmys06"]
+
+[ext_resource type="Script" uid="uid://2vtr0ogfes60" path="res://scripts/splash_screen.gd" id="1_eg2g1"]
+[ext_resource type="Texture2D" uid="uid://w86suym52g7r" path="res://imagens/SPLASH SCREEN.png" id="2_r1tsr"]
+[ext_resource type="Texture2D" uid="uid://b7xehr0a42jgy" path="res://imagens/0.png" id="3_0v6mh"]
+[ext_resource type="Texture2D" uid="uid://dnij1dgxug3tm" path="res://imagens/1.png" id="4_ps5hq"]
+[ext_resource type="FontFile" uid="uid://bnxjrbuyjc074" path="res://fontes/PressStart2P-Regular.ttf" id="4_t21rl"]
+[ext_resource type="Texture2D" uid="uid://bwg22ylkcmpxt" path="res://imagens/2.png" id="5_t3spi"]
+[ext_resource type="Texture2D" uid="uid://brmmb0kwiwto2" path="res://imagens/3.png" id="6_ddtyo"]
+[ext_resource type="Texture2D" uid="uid://um15oy5qqyyt" path="res://imagens/4.png" id="7_lld3j"]
+[ext_resource type="Texture2D" uid="uid://0n8o1113xaxo" path="res://imagens/5.png" id="8_jbrky"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_a4jts"]
+frames = 6
+speed_scale = 6.0
+frame_0/texture = ExtResource("3_0v6mh")
+frame_1/texture = ExtResource("4_ps5hq")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("5_t3spi")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("6_ddtyo")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("7_lld3j")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("8_jbrky")
+frame_5/duration = 1.0
+
+[sub_resource type="Animation" id="Animation_74eti"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.14117648, 0.14117648, 0.14117648, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../MarginContainer/carregando:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Carregando"]
+}
+
+[sub_resource type="Animation" id="Animation_el3v4"]
+resource_name = "fade_in"
+length = 4.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Color(0.14117648, 0.14117648, 0.14117648, 1), Color(0.14117648, 0.14117648, 0.14117648, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../MarginContainer/carregando:text")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.6, 0.79999995, 1, 1.2, 1.4, 1.5999999, 1.8, 2, 2.2, 2.4, 2.6, 2.8000002, 3, 3.2, 3.3999999, 3.6000001, 3.8, 4, 4.2, 4.4),
+"transitions": PackedFloat32Array(2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2),
+"update": 1,
+"values": ["Carregando", "Carregando.", "Carregando..", "Carregando...", "Carregando", "Carregando.", "Carregando..", "Carregando...", "Carregando", "Carregando.", "Carregando..", "Carregando...", "Carregando", "Carregando.", "Carregando..", "Carregando...", "Carregando", "Carregando.", "Carregando..", "Carregando..."]
+}
+
+[sub_resource type="Animation" id="Animation_arguk"]
+resource_name = "fade_out"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0.5, 0.5),
+"update": 0,
+"values": [Color(0.14117648, 0.14117648, 0.14117648, 0), Color(0.14117648, 0.14117648, 0.14117648, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_r8bb4"]
+_data = {
+&"RESET": SubResource("Animation_74eti"),
+&"fade_in": SubResource("Animation_el3v4"),
+&"fade_out": SubResource("Animation_arguk")
+}
+
+[node name="splash_screen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_eg2g1")
+
+[node name="Image" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_r1tsr")
+expand_mode = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -130.75
+offset_top = -130.75
+offset_right = 130.75
+offset_bottom = 130.75
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AnimatedTexture_a4jts")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_bottom = 226
+
+[node name="carregando" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("4_t21rl")
+theme_override_font_sizes/font_size = 20
+text = "Carregando"
+horizontal_alignment = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.14117648, 0.14117648, 0.14117648, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Image")
+libraries = {
+&"": SubResource("AnimationLibrary_r8bb4")
+}
+autoplay = "fade_in"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
