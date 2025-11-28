@@ -1,11 +1,10 @@
-[gd_scene load_steps=20 format=3 uid="uid://dta6pvhchjevu"]
+[gd_scene load_steps=19 format=3 uid="uid://dta6pvhchjevu"]
 
 [ext_resource type="Script" uid="uid://dqvkhmwyhqmr" path="res://cenas/game_level.gd" id="1_b5r0v"]
 [ext_resource type="PackedScene" uid="uid://b6x1osh00hb4i" path="res://cenas/terreno.tscn" id="1_duqxd"]
 [ext_resource type="PackedScene" uid="uid://mg38x0idkcbk" path="res://cenas/move_joystick.tscn" id="2_043at"]
 [ext_resource type="PackedScene" uid="uid://bsuc62fgmdgx5" path="res://cenas/gui.tscn" id="3_7cgj1"]
-[ext_resource type="Texture2D" uid="uid://b17t0o04lqy3x" path="res://imagens/button.png" id="3_be1uy"]
-[ext_resource type="Texture2D" uid="uid://chse58p7ytbeq" path="res://imagens/button_pressed.png" id="4_3pegr"]
+[ext_resource type="PackedScene" uid="uid://douh6fifvnkxj" path="res://cenas/touch_button.tscn" id="3_rt581"]
 [ext_resource type="Texture2D" uid="uid://ciyugts7dt32a" path="res://personagens/PretinProvocante.png" id="4_y68d4"]
 [ext_resource type="Texture2D" uid="uid://d3si6bx8313ha" path="res://personagens/RuivinhaDePatis.png" id="5_hwfjb"]
 [ext_resource type="Texture2D" uid="uid://bp6xs1tr254p" path="res://personagens/Morena.png" id="6_p7pl8"]
@@ -42,14 +41,18 @@ theme_override_constants/margin_bottom = 50
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="TouchScreenButton" type="TouchScreenButton" parent="HUD"]
+[node name="MarginContainer2" type="MarginContainer" parent="HUD"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 100
+
+[node name="touch_button" parent="HUD/MarginContainer2" instance=ExtResource("3_rt581")]
 unique_name_in_owner = true
-position = Vector2(1099, 530.00006)
-scale = Vector2(4.15625, 4.15625)
-texture_normal = ExtResource("3_be1uy")
-texture_pressed = ExtResource("4_3pegr")
-action = "E"
-visibility_mode = 1
+layout_mode = 2
 
 [node name="Terreno" parent="." instance=ExtResource("1_duqxd")]
 position = Vector2(448, -152)
@@ -114,7 +117,7 @@ shape = SubResource("RectangleShape2D_7cgj1")
 texture = ExtResource("6_p7pl8")
 hframes = 6
 
-[node name="Indicador2" parent="npcs/NPC3" instance=ExtResource("15_v3q02")]
+[node name="Indicador" parent="npcs/NPC3" instance=ExtResource("15_v3q02")]
 position = Vector2(0, -12)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="npcs/NPC3"]
@@ -135,7 +138,7 @@ shape = SubResource("RectangleShape2D_7cgj1")
 texture = ExtResource("7_bknfm")
 hframes = 6
 
-[node name="Indicador2" parent="npcs/NPC4" instance=ExtResource("15_v3q02")]
+[node name="Indicador" parent="npcs/NPC4" instance=ExtResource("15_v3q02")]
 position = Vector2(0, -12)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="npcs/NPC4"]

@@ -1,9 +1,29 @@
-[gd_scene load_steps=9 format=3 uid="uid://dfyeps4pmys06"]
+[gd_scene load_steps=15 format=3 uid="uid://dfyeps4pmys06"]
 
 [ext_resource type="Script" uid="uid://2vtr0ogfes60" path="res://scripts/splash_screen.gd" id="1_eg2g1"]
 [ext_resource type="Texture2D" uid="uid://w86suym52g7r" path="res://imagens/SPLASH SCREEN.png" id="2_r1tsr"]
-[ext_resource type="Texture2D" uid="uid://kol4i08dbb1t" path="res://personagens/AllFramesGui.png" id="3_n5egt"]
+[ext_resource type="Texture2D" uid="uid://b7xehr0a42jgy" path="res://imagens/0.png" id="3_0v6mh"]
+[ext_resource type="Texture2D" uid="uid://dnij1dgxug3tm" path="res://imagens/1.png" id="4_ps5hq"]
 [ext_resource type="FontFile" uid="uid://bnxjrbuyjc074" path="res://fontes/PressStart2P-Regular.ttf" id="4_t21rl"]
+[ext_resource type="Texture2D" uid="uid://bwg22ylkcmpxt" path="res://imagens/2.png" id="5_t3spi"]
+[ext_resource type="Texture2D" uid="uid://brmmb0kwiwto2" path="res://imagens/3.png" id="6_ddtyo"]
+[ext_resource type="Texture2D" uid="uid://um15oy5qqyyt" path="res://imagens/4.png" id="7_lld3j"]
+[ext_resource type="Texture2D" uid="uid://0n8o1113xaxo" path="res://imagens/5.png" id="8_jbrky"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_a4jts"]
+frames = 6
+speed_scale = 6.0
+frame_0/texture = ExtResource("3_0v6mh")
+frame_1/texture = ExtResource("4_ps5hq")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("5_t3spi")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("6_ddtyo")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("7_lld3j")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("8_jbrky")
+frame_5/duration = 1.0
 
 [sub_resource type="Animation" id="Animation_74eti"]
 length = 0.001
@@ -22,22 +42,10 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../Texture:frame")
+tracks/1/path = NodePath("../MarginContainer/carregando:text")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [36]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../MarginContainer/carregando:text")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -62,22 +70,10 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../Texture:frame")
+tracks/1/path = NodePath("../MarginContainer/carregando:text")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0.6, 0.70000005, 0.8000001, 0.9, 1.0000001, 1.1, 1.2, 1.3, 1.4000001, 1.5, 1.6000001, 1.7, 1.8, 1.8999999, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.8999999, 3, 3.1, 3.1999998, 3.3, 3.3999999, 3.4999998, 3.6, 3.6999998, 3.8, 3.9, 4, 4.1, 4.2, 4.3),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [36, 37, 38, 39, 40, 41, 36, 37, 38, 39, 40, 41, 36, 37, 36, 37, 38, 39, 40, 41, 36, 37, 38, 39, 40, 41, 36, 37, 38, 39, 40, 41, 36, 37, 38, 39, 40, 41]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../MarginContainer/carregando:text")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
 "times": PackedFloat32Array(0.6, 0.79999995, 1, 1.2, 1.4, 1.5999999, 1.8, 2, 2.2, 2.4, 2.6, 2.8000002, 3, 3.2, 3.3999999, 3.6000001, 3.8, 4, 4.2, 4.4),
 "transitions": PackedFloat32Array(2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2),
 "update": 1,
@@ -124,15 +120,22 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_r1tsr")
 expand_mode = 1
-stretch_mode = 5
 
-[node name="Texture" type="Sprite2D" parent="."]
-position = Vector2(640, 384)
-scale = Vector2(7.90625, 7.90625)
-texture = ExtResource("3_n5egt")
-hframes = 6
-vframes = 8
-frame = 36
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -130.75
+offset_top = -130.75
+offset_right = 130.75
+offset_bottom = 130.75
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("AnimatedTexture_a4jts")
+expand_mode = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

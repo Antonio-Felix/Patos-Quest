@@ -4,7 +4,7 @@ class_name GameLevel
 const _DIALOG_SCREEN: PackedScene = preload("res://dialog_screen.tscn")
 
 @onready var move_joystick: Control = %move_joystick
-@onready var touch_screen_button: TouchScreenButton = %TouchScreenButton
+@onready var touch_button: Control = %touch_button
 
 @export_category("Objects")
 var dialogue1 = preload("res://conversa.dialogue")
@@ -31,13 +31,13 @@ func _on_dialog_start(_resource: DialogueResource):
 	Globals.dialog_active = true
 	if move_joystick:
 		move_joystick.visible = false
-		touch_screen_button.visible = false
+		touch_button.visible = false
 
 func _on_dialog_end(_resource: DialogueResource):
 	Globals.dialog_active = false
 	if move_joystick:
 		move_joystick.visible = true
-		touch_screen_button.visible = true
+		touch_button.visible = true
 	
 func _process(_delta: float) -> void: 
 	if player_in_area and not interaction_used and Input.is_action_just_pressed("E"):
