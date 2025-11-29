@@ -1,6 +1,5 @@
-[gd_scene load_steps=5 format=3 uid="uid://eesiuptxkajt"]
+[gd_scene load_steps=4 format=3 uid="uid://eesiuptxkajt"]
 
-[ext_resource type="PackedScene" uid="uid://olymb41avesj" path="res://cenas/moeda.tscn" id="1_h2str"]
 [ext_resource type="Script" uid="uid://d0vowe3ci45xy" path="res://cenas/tela_creditos.gd" id="1_s1etw"]
 [ext_resource type="FontFile" uid="uid://cjdylgebf4ckj" path="res://fontes/Jersey10-Regular.ttf" id="2_cfwgr"]
 
@@ -122,18 +121,3 @@ Seja parte da mudança.[/font_size]
 
 "
 fit_content = true
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
-layout_mode = 2
-
-[node name="moeda" parent="MarginContainer/MarginContainer" instance=ExtResource("1_h2str")]
-position = Vector2(993, 171)
-collision_layer = 2
-
-[node name="moeda2" parent="MarginContainer/MarginContainer" instance=ExtResource("1_h2str")]
-position = Vector2(978, 1041)
-collision_layer = 2
-
-[node name="moeda3" parent="MarginContainer/MarginContainer" instance=ExtResource("1_h2str")]
-position = Vector2(-118, 630)
-collision_layer = 2
