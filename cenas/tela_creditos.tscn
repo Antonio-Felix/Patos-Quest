@@ -112,6 +112,14 @@ Seja parte da mudança.[/font_size]
 
 
 
+
+
+
+
+
+
+
+
 "
 fit_content = true
 
@@ -119,11 +127,11 @@ fit_content = true
 layout_mode = 2
 
 [node name="moeda" parent="MarginContainer/MarginContainer" instance=ExtResource("1_h2str")]
-position = Vector2(1123, 176)
+position = Vector2(993, 171)
 collision_layer = 2
 
 [node name="moeda2" parent="MarginContainer/MarginContainer" instance=ExtResource("1_h2str")]
-position = Vector2(1141, 1051)
+position = Vector2(978, 1041)
 collision_layer = 2
 
 [node name="moeda3" parent="MarginContainer/MarginContainer" instance=ExtResource("1_h2str")]

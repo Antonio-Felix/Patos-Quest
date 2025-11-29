@@ -97,19 +97,33 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_eyjon")
 
-[node name="Titulos" type="MarginContainer" parent="."]
+[node name="Main" type="HBoxContainer" parent="."]
 layout_mode = 1
-offset_right = 715.0
-offset_bottom = 199.0
-theme_override_constants/margin_left = 150
-theme_override_constants/margin_top = 150
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -534.5
+offset_top = -250.0
+offset_right = 534.5
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
 
-[node name="ContainerV" type="VBoxContainer" parent="Titulos"]
+[node name="Esquerda" type="VBoxContainer" parent="Main"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 64
+
+[node name="Titulos2" type="VBoxContainer" parent="Main/Esquerda"]
 layout_mode = 2
 size_flags_stretch_ratio = 0.0
 theme_override_constants/separation = -30
 
-[node name="TextoTitulo" type="Label" parent="Titulos/ContainerV"]
+[node name="TextoTitulo" type="Label" parent="Main/Esquerda/Titulos2"]
 layout_mode = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("4_6ro21")
@@ -118,7 +132,7 @@ text = "PATOS QUEST"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextoSubTitulo" type="Label" parent="Titulos/ContainerV"]
+[node name="TextoSubTitulo" type="Label" parent="Main/Esquerda/Titulos2"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.796078, 0.666667, 0, 1)
 theme_override_fonts/font = ExtResource("5_0330o")
@@ -127,22 +141,11 @@ text = "tesouro da inclusão"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Menu" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 2
-anchor_top = 1.0
-anchor_bottom = 1.0
-offset_top = -400.0
-offset_right = 707.0
-grow_vertical = 0
-theme_override_constants/margin_left = 150
-theme_override_constants/margin_bottom = 150
-
-[node name="ContainerV" type="VBoxContainer" parent="Menu"]
+[node name="Menu" type="VBoxContainer" parent="Main/Esquerda"]
 layout_mode = 2
 theme_override_constants/separation = 10
 
-[node name="BtnComecar" type="Button" parent="Menu/ContainerV"]
+[node name="BtnComecar" type="Button" parent="Main/Esquerda/Menu"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -157,7 +160,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_eyjon")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_roq6h")
 text = "COMEÇAR"
 
-[node name="BtnCreditos" type="Button" parent="Menu/ContainerV"]
+[node name="BtnCreditos" type="Button" parent="Main/Esquerda/Menu"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -172,7 +175,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_po728")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_sw1c2")
 text = "CRÉDITOS"
 
-[node name="BtnSobre" type="Button" parent="Menu/ContainerV"]
+[node name="BtnSobre" type="Button" parent="Main/Esquerda/Menu"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -187,7 +190,7 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_po728")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_sw1c2")
 text = "SOBRE"
 
-[node name="BtnSair" type="Button" parent="Menu/ContainerV"]
+[node name="BtnSair" type="Button" parent="Main/Esquerda/Menu"]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -202,21 +205,11 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_po728")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_sw1c2")
 text = "SAIR"
 
-[node name="Gui" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -481.0
-offset_top = -240.5
-offset_bottom = 240.5
-grow_horizontal = 0
-grow_vertical = 2
-
-[node name="Figura" type="TextureRect" parent="Gui"]
+[node name="Gui" type="TextureRect" parent="Main"]
+custom_minimum_size = Vector2(500, 500)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture = ExtResource("3_0w2hc")
 expand_mode = 1
 
@@ -226,7 +219,7 @@ libraries = {
 }
 autoplay = "fade_in"
 
-[connection signal="pressed" from="Menu/ContainerV/BtnComecar" to="." method="_on_btn_comecar_pressed"]
-[connection signal="pressed" from="Menu/ContainerV/BtnCreditos" to="." method="_on_btn_creditos_pressed"]
-[connection signal="pressed" from="Menu/ContainerV/BtnSobre" to="." method="_on_btn_sobre_pressed"]
-[connection signal="pressed" from="Menu/ContainerV/BtnSair" to="." method="_on_btn_sair_pressed"]
+[connection signal="pressed" from="Main/Esquerda/Menu/BtnComecar" to="." method="_on_btn_comecar_pressed"]
+[connection signal="pressed" from="Main/Esquerda/Menu/BtnCreditos" to="." method="_on_btn_creditos_pressed"]
+[connection signal="pressed" from="Main/Esquerda/Menu/BtnSobre" to="." method="_on_btn_sobre_pressed"]
+[connection signal="pressed" from="Main/Esquerda/Menu/BtnSair" to="." method="_on_btn_sair_pressed"]
