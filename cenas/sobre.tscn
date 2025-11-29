@@ -1,37 +1,45 @@
 [gd_scene load_steps=8 format=3 uid="uid://dfn5o3lmcek57"]
 
-[ext_resource type="Script" uid="uid://l8iw6xdkj2wc" path="res://cenas/sobre.gd" id="1_gwn4u"]
+[ext_resource type="Script" uid="uid://v7wqt4jthrqk" path="res://scripts/sobre.gd" id="1_krlnc"]
 [ext_resource type="FontFile" uid="uid://cjdylgebf4ckj" path="res://fontes/Jersey10-Regular.ttf" id="2_krlnc"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ttsau"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l8gb5"]
 bg_color = Color(0.007843138, 0.0627451, 0.14117648, 1)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fqupr"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3652d"]
 bg_color = Color(0.533037, 0.533037, 0.533037, 1)
 shadow_size = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_85bjw"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qc83w"]
 bg_color = Color(0.834614, 0.834614, 0.834614, 1)
 shadow_size = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gwn4u"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x5clk"]
 bg_color = Color(0.485703, 0.485704, 0.485703, 1)
 shadow_size = 5
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ttsau"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_17ik1"]
 
-[node name="Node2D" type="Node2D"]
-position = Vector2(0, 9)
-script = ExtResource("1_gwn4u")
+[node name="sobre" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_krlnc")
 
 [node name="Panel" type="Panel" parent="."]
 custom_minimum_size = Vector2(1280, 720)
-offset_top = -9.0
-offset_right = 1280.0
-offset_bottom = 711.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 3
-theme_override_styles/panel = SubResource("StyleBoxFlat_ttsau")
+theme_override_styles/panel = SubResource("StyleBoxFlat_l8gb5")
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel"]
 layout_mode = 1
@@ -40,8 +48,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 50
-theme_override_constants/margin_right = 50
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_right = 100
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Panel/MarginContainer"]
 layout_mode = 2
@@ -118,8 +126,7 @@ Mais do que uma equipe de desenvolvedores, a [b]GO+[/b] é um movimento de estud
  [font_size=22]
 A demanda veio a partir de um Projeto de Extensão de fora da Instituição, o nome do projeto é Tesouro da Inclusão, contam com várias atividades e projetos que focam no âmbito da inclusão.  Para acessar e conhecer mais sobre o projeto, basta procurar por @tesouro_da_inclusao no Instagram.
 
-[img=300x300]res://imagens/tesouro.jpeg[/img]
-[/font_size]
+[img=300x300]res://imagens/tesouro.jpeg[/img][/font_size]
 [/center]
 "
 fit_content = true
@@ -134,10 +141,10 @@ theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_krlnc")
 theme_override_font_sizes/font_size = 50
-theme_override_styles/normal = SubResource("StyleBoxFlat_fqupr")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_85bjw")
-theme_override_styles/hover = SubResource("StyleBoxFlat_gwn4u")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_ttsau")
+theme_override_styles/normal = SubResource("StyleBoxFlat_3652d")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_qc83w")
+theme_override_styles/hover = SubResource("StyleBoxFlat_x5clk")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_17ik1")
 text = "VOLTAR"
 
 [node name="espaco" type="Control" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer"]
