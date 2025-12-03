@@ -11,9 +11,9 @@ config_version=5
 [application]
 
 config/name="Patos Quest"
-run/main_scene="uid://dfyeps4pmys06"
+run/main_scene="uid://bxgfyw7xbgsca"
 config/features=PackedStringArray("4.5", "GL Compatibility")
-boot_splash/show_image=false
+boot_splash/image="uid://w86suym52g7r"
 config/icon="uid://b1bmc3lem5rp6"
 
 [autoload]
