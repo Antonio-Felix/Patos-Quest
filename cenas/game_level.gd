@@ -156,4 +156,4 @@ func _check_phase_change() -> void:
 		_change_level()
 
 func _change_level() -> void:
-	get_tree().change_scene_to_file("res://cenas/level_2.tscn")
+	get_tree().change_scene_to_file("res://cenas/tela_carregamento.tscn")
