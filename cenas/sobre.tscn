@@ -41,31 +41,27 @@ size_flags_horizontal = 4
 size_flags_vertical = 3
 theme_override_styles/panel = SubResource("StyleBoxFlat_l8gb5")
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_bottom = 16
-
-[node name="ScrollContainer" type="ScrollContainer" parent="Panel/MarginContainer"]
-layout_mode = 2
 horizontal_scroll_mode = 0
 vertical_scroll_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/ScrollContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 20
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer"]
+[node name="Lateral" type="MarginContainer" parent="Panel/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 200
 theme_override_constants/margin_right = 200
 
-[node name="RichTextLabel" type="RichTextLabel" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer/MarginContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/ScrollContainer/VBoxContainer/Lateral"]
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("2_krlnc")
 theme_override_fonts/bold_font = ExtResource("2_krlnc")
@@ -135,10 +131,14 @@ A demanda veio a partir de um Projeto de Extensão de fora da Instituição, o n
 "
 fit_content = true
 
-[node name="espaco" type="Control" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer/MarginContainer"]
+[node name="espaco" type="Control" parent="Panel/ScrollContainer/VBoxContainer/Lateral"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Panel/MarginContainer/ScrollContainer/VBoxContainer"]
+[node name="Em Baixo" type="MarginContainer" parent="Panel/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 20
+
+[node name="Button" type="Button" parent="Panel/ScrollContainer/VBoxContainer/Em Baixo"]
 custom_minimum_size = Vector2(200, 0)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -154,4 +154,4 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_x5clk")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_17ik1")
 text = "VOLTAR"
 
-[connection signal="pressed" from="Panel/MarginContainer/ScrollContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Panel/ScrollContainer/VBoxContainer/Em Baixo/Button" to="." method="_on_button_pressed"]
